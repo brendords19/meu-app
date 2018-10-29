@@ -1,17 +1,19 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-/*
-  Generated class for the LivrosApiProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class LivrosApiProvider {
+  url: string = 'https://www.googleapis.com/books/v1';
 
-  constructor(public http: HttpClient) {
-    console.log('Hello LivrosApiProvider Provider');
+  constructor(public http: HttpClient) { }
+
+  filtrar(termo: string) {
+    const params = new HttpParams().set('q', termo);
+    return this.http.get(this.url + '/volumes', { params: params});
   }
 
+  recuperar(id: string) {
+    return this.http.get(this.url + `/volumes/${id}`);
+  }
 }
