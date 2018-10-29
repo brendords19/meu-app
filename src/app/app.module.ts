@@ -10,6 +10,10 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { LivrosStorageProvider } from '../providers/livros-storage/livros-storage';
+import { LivrosNaoLidosProvider } from '../providers/livros-nao-lidos/livros-nao-lidos';
+import { LivrosLidosProvider } from '../providers/livros-lidos/livros-lidos';
+import { LivrosApiProvider } from '../providers/livros-api/livros-api';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    LivrosStorageProvider,
+    LivrosNaoLidosProvider,
+    LivrosLidosProvider,
+    LivrosApiProvider
   ]
 })
 export class AppModule {}
