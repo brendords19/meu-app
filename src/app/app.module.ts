@@ -13,6 +13,9 @@ import { LivrosNaoLidosProvider } from '../providers/livros-nao-lidos/livros-nao
 import { LivrosLidosProvider } from '../providers/livros-lidos/livros-lidos';
 import { LivrosApiProvider } from '../providers/livros-api/livros-api';
 
+import { HttpClientModule } from '@angular/common/http';
+import { IonicStorageModule } from '@ionic/storage';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -20,7 +23,10 @@ import { LivrosApiProvider } from '../providers/livros-api/livros-api';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    HttpClientModule,
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [

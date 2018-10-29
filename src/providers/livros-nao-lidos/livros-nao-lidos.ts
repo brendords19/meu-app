@@ -1,17 +1,25 @@
-import { HttpClient } from '@angular/common/http';
+import { LivrosStorageProvider } from './../livros-storage/livros-storage';
 import { Injectable } from '@angular/core';
+import { Livro } from '../../modules/livro';
 
-/*
-  Generated class for the LivrosNaoLidosProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class LivrosNaoLidosProvider {
+  private KEY_LIVROS_NAO_LIDOS: string = 'livros-nao-lidos';
 
-  constructor(public http: HttpClient) {
-    console.log('Hello LivrosNaoLidosProvider Provider');
+  constructor(private storage: LivrosStorageProvider) { }
+
+  recuperarTodos() {
+    return this.storage.recuperarTodos(this.KEY_LIVROS_NAO_LIDOS);
   }
 
-}
+  adicionar(livro: Livro){
+    return this.storage.adicionar(this.KEY_LIVROS_NAO_LIDOS, livro);
+  }
+
+  remover(livro: Livro){
+    return this.storage.remover(this.KEY_LIVROS_NAO_LIDOS, livro);
+  }
+   
+  }
+
+
