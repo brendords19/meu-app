@@ -32,6 +32,7 @@ export class DetalhesPage {
   private recuperarLivro(id: string) {
     this.livroApi.recuperar(id).subscribe((livro: any) =>{
       const livroInfo = livro.volumeInfo;
+      this.livro.id = id;
       this.livro.title = livroInfo.title;
       this.livro.subtitle = livroInfo.subtitle;
       this.livro.authors = livroInfo.authors;
