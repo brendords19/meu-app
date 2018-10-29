@@ -34,6 +34,7 @@ export class BuscarLivrosPage {
   }
 
   abrirLivro(id: string){
+    this.navCtrl.push('DetalhesPage', { livroId: id});
 
   }
   }
